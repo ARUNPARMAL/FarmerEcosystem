@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SeedDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="#EBF3E8"
+        android:layout_height="match_parent"
+        >
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/conLayout"
+            android:fillViewport="true"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/product_name_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/imageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Rupa Rice"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="285dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintWidth_percent="0.85"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/product_name_text"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/user_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintTop_toBottomOf="@id/price"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/seller_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="19sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="7dp"
+                    app:layout_goneMarginTop="-10dp"
+                    app:layout_constraintStart_toEndOf="@id/user_image"
+                    app:layout_constraintTop_toTopOf="@id/user_image"
+                    tools:text="Seller Name"/>
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/seller_number"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="15sp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:layout_marginStart="10dp"-->
+<!--                    android:layout_marginTop="2dp"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/user_image"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/seller_name"-->
+<!--                    tools:text="Seller Number"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="19sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toStartOf="@id/imageView"
+                    app:layout_constraintTop_toBottomOf="@id/imageView"
+                    tools:text="Rs. 20"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/stockstatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="19sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintEnd_toEndOf="@id/imageView"
+                    app:layout_constraintTop_toBottomOf="@id/imageView"
+                    tools:text="In Stock"
+                    />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@color/white"
+                    android:padding="10dp"
+                    app:cardCornerRadius="9dp"
+                    app:layout_constraintWidth_percent="0.87"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/user_image"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:paddingBottom="20dp"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/product_creds"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Product Details"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="Product Details"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/seednametv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/product_creds"
+                            android:text="Seed Name"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/seedname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/Harvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/product_creds"
+                            android:text="Wheat "/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/seedvarietytv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/seedname"
+                            android:text="Seed Type "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/seed_variety"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/Harvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/seedname"
+                            android:text="Golden beauty"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/netweight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/seed_variety"
+                            android:text="Net Weight "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/item_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/Harvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/seed_variety"
+                            android:text="20 g"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/quantitytv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/item_weight"
+                            android:text="Quantity "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/quantity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/Harvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/item_weight"
+                            android:text="120 pieces"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/brandnametv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/quantity"
+                            android:text="Brand  "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/brand_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/Harvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/quantity"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:paddingRight="20dp"
+                            android:text="Brand Name "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/Harvestingtimetv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/brand_name"
+                            android:text="Harvesting Season"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/harverstingtime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/Harvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/brand_name"
+                            android:text="march , 2022"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/descriptiontv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/harverstingtime"
+                            android:text="Description "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:inputType="textMultiLine"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/Harvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/Harvestingtimetv"
+                            android:text="scientific name of the prouct"/>
+<!--                        <androidx.appcompat.widget.AppCompatTextView-->
+<!--                            android:id="@+id/youtubelinktv"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="16sp"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:layout_marginStart="10dp"-->
+<!--                            android:layout_marginBottom="10dp"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@id/descriptiontv"-->
+<!--                            android:text="Youtube Link"/>-->
+<!--                        <androidx.appcompat.widget.AppCompatTextView-->
+<!--                            android:id="@+id/youtubelink"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="16sp"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:layout_marginBottom="10dp"-->
+<!--                            app:layout_constraintStart_toStartOf="@id/description"-->
+<!--                            app:layout_constraintTop_toTopOf="@id/youtubelinktv"-->
+<!--                            android:text="See Video"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintHorizontal_bias="0"-->
+<!--                            android:paddingRight="10dp"-->
+<!--                            android:maxEms="18"-->
+<!--                            android:minLines="1"/>-->
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/scroll_view"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buy_button"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="#f37413"
+                android:padding="10dp"
+                android:text="Buy Product"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintWidth_percent="0.8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/wish_button"-->
+<!--                android:layout_width="184dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:background="#FF0000"-->
+<!--                android:text="Add to wishlist"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAllCaps="false"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

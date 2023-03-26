@@ -4,8 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ARUN WORK/Android Projects/FarmerEcosystem/app/src/main/res/layout/activity_main.xml" value="0.2341485507246377" />
+        <entry key="..\:/ARUN WORK/Android Projects/FarmerEcosystem/app/src/main/res/layout/activity_main2.xml" value="0.3098958333333333" />
+        <entry key="..\:/ARUN WORK/Android Projects/FarmerEcosystem/app/src/main/res/layout/activity_seed_detail.xml" value="0.33" />
         <entry key="..\:/ARUN WORK/Android Projects/FarmerEcosystem/app/src/main/res/layout/fragment_home.xml" value="0.2341485507246377" />
+        <entry key="..\:/ARUN WORK/Android Projects/FarmerEcosystem/app/src/main/res/layout/fragment_profile.xml" value="0.2341485507246377" />
+        <entry key="..\:/ARUN WORK/Android Projects/FarmerEcosystem/app/src/main/res/layout/fragment_rent.xml" value="0.2341485507246377" />
+        <entry key="..\:/ARUN WORK/Android Projects/FarmerEcosystem/app/src/main/res/layout/fragment_shop.xml" value="0.2341485507246377" />
+        <entry key="..\:/ARUN WORK/Android Projects/FarmerEcosystem/app/src/main/res/layout/seed_item_layout.xml" value="0.11431784107946028" />
         <entry key="..\:/ARUN WORK/Android Projects/FarmerEcosystem/app/src/main/res/menu/navbarmenu.xml" value="0.3098958333333333" />
+        <entry key="..\:/FarmerEcosystem1/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/FarmerEcosystem1/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />
       </map>
     </option>
