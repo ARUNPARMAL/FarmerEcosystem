@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -30,6 +31,7 @@ public class HomeFragment extends Fragment {
     FirebaseFirestore firestore;
     Seedsadapter seedsadapter;
     RecyclerView recyclerView;
+    ImageView orders;
     ArrayList<SeedModel> seedlist=new ArrayList<SeedModel>();
 
     @Override
@@ -66,6 +68,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         // Inflate the layout for this fragment
         recyclerView=(RecyclerView) view.findViewById(R.id.recyclerviewhome);
+        orders=view.findViewById(R.id.orders);
 
                 recyclerView.setAdapter(seedsadapter);
         return view;

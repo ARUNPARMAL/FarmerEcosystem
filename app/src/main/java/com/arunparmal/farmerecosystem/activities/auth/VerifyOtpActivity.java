@@ -67,7 +67,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
                                         verifyotp.setVisibility(View.VISIBLE);
                                         if(task.isSuccessful()){
                                             Toast.makeText(VerifyOtpActivity.this, "OTP verified successfully", Toast.LENGTH_SHORT).show();
-                                            Intent i=new Intent(VerifyOtpActivity.this, MainActivity.class);
+                                            Intent i=new Intent(VerifyOtpActivity.this, FarmerDetailsActivity.class);
                                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(i);
                                         }else{

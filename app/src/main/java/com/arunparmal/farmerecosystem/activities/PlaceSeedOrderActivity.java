@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,8 @@ import com.arunparmal.farmerecosystem.utility.Constants;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -29,6 +32,7 @@ import com.google.firebase.ktx.Firebase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class PlaceSeedOrderActivity extends AppCompatActivity {
 
@@ -38,9 +42,10 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
     Button buyitem,buynow;
     TextView productname,productprice,producttype,totalprice,productid,vendorid;
     EditText itemcount,address,pincode,paymentmode;
-
+    FirebaseUser fuser= FirebaseAuth.getInstance().getCurrentUser();
     ProgressBar progressBar;
 
+    String orderid= UUID.randomUUID().toString();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,9 +76,6 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
             activity_code=bundle.get(constants.ACTIVITY_VERIFICATION_CODE).toString();
             product_id=bundle.get(constants.PRODUCT_ID).toString();
 
-
-
-
             if (activity_code.equals(constants.ACTIVITY_SEED_DETAIL)){
                 getseeddatafromfirebase(product_id);
             }
@@ -97,11 +99,14 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                 Toast.makeText(this, tvendorid, Toast.LENGTH_SHORT).show();
 
                 Map<String,Object> bookingdata = new HashMap<>();
+                bookingdata.put("Order_id",orderid);
                 bookingdata.put("Order_Product_id",tproductid);
                 bookingdata.put("Order_Product_address",taddress);
                 bookingdata.put("Order_Product_pincode",tpincode);
                 bookingdata.put("Order_Product_count",titemcount);
                 bookingdata.put("Order_Product_amount",tamount);
+                bookingdata.put("Order_Product_Type","SEED");
+                bookingdata.put("Order_Product_UserID",fuser.getUid().toString());
 
                 firestore.collection("Vendors").document(tvendorid.toString()).collection("Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
@@ -112,6 +117,13 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                        startActivity(new Intent(PlaceSeedOrderActivity.this,MainActivity.class));
                        finish();
                    }
+                    }
+                });
+
+                firestore.collection("Farmers").document(fuser.getUid()).collection("Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        Log.d("database","data added in farmer collection");
                     }
                 });
             });
