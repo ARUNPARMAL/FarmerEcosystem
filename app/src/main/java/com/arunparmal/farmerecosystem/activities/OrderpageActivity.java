@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.arunparmal.farmerecosystem.R;
 
-public class orderpage extends AppCompatActivity {
+public class OrderpageActivity extends AppCompatActivity {
 
     Button shopping,rent,harvesting;
     @Override

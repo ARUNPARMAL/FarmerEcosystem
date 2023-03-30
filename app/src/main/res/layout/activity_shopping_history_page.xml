@@ -17,11 +17,19 @@
         android:layout_marginTop="15dp"
         android:textAppearance="@android:style/TextAppearance.Large"
         />
+    <TextView
+        android:id="@+id/textchemicalOrders"
+        android:layout_width="wrap_content"
+        android:text="Orders"
+        android:layout_marginStart="20dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvyourorders"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/orderrecyclerview"
+        android:id="@+id/orderrecyclerviewseeds"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvyourorders"
+        app:layout_constraintTop_toBottomOf="@+id/textchemicalOrders"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 

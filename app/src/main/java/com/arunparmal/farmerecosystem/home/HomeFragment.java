@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.arunparmal.farmerecosystem.R;
 import com.arunparmal.farmerecosystem.activities.MainActivity;
+import com.arunparmal.farmerecosystem.activities.OrderpageActivity;
 import com.arunparmal.farmerecosystem.activities.SeedDetailActivity;
 import com.arunparmal.farmerecosystem.adapters.Seedsadapter;
 import com.arunparmal.farmerecosystem.model.SeedModel;
@@ -58,6 +59,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
         seedsadapter=new Seedsadapter(seedlist,getActivity());
     }
 
@@ -69,6 +71,10 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         recyclerView=(RecyclerView) view.findViewById(R.id.recyclerviewhome);
         orders=view.findViewById(R.id.orders);
+        orders.setOnClickListener(v -> {
+            getView().getContext().startActivity(new Intent(getActivity(), OrderpageActivity.class));
+        });
+
 
                 recyclerView.setAdapter(seedsadapter);
         return view;

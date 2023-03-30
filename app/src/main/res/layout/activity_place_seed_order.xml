@@ -16,6 +16,15 @@
         android:textAppearance="@android:style/TextAppearance.Large"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="30dp"/>
+    <ImageButton
+        android:id="@+id/editdetails"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/edit_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"/>
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
@@ -23,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/t_reviewOrder"
-        app:layout_constraintBottom_toTopOf="@+id/buy_item"
+        app:layout_constraintBottom_toTopOf="@+id/llbutton"
         />
 
     <LinearLayout
@@ -31,7 +40,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/buy_item"
+        app:layout_constraintBottom_toTopOf="@+id/llbutton"
         app:layout_constraintTop_toBottomOf="@id/t_reviewOrder"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
@@ -166,6 +175,8 @@
             android:layout_marginTop="5dp"
             android:clickable="false"
             android:text="Cash On Delievery"
+           android:enabled="false"
+            android:textColor="@color/black"
 
 
             />
@@ -173,6 +184,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

@@ -22,6 +22,20 @@ public class Constants {
 
 
 
+     public final String CHEMICAL_ID="cid";
+     public final String CHEMICAL_BRAND_NAME="cbrand";
+     public final String CHEMICAL_NAME="cname";
+     public final String CHEMICAL_DESC="cdesc";
+     public final String CHEMICAL_PRICE="cprice";
+     public final String CHEMICAL_USE="cuse";
+     public final String CHEMICAL_ITEM_WEIGHT="cweight";
+     public final String CHEMICAL_NET_QUANTITY="cnq";
+     public final String CHEMICAL_STOCK_STATUS="css";
+     public final String CHEMICAL_CATEGORY="ccat";
+     public final String CHEMICAL_VENDOR_ID="cVendorID";
+     public final String CHEMICAL_IMAGEURL="cimageurl";
+
+
 
 
 }

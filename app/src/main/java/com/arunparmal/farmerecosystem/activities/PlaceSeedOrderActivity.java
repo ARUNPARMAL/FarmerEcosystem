@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
     FirebaseFirestore firestore;
     ImageView productimage;
     Button buyitem,buynow;
+    ImageButton editbutton;
     TextView productname,productprice,producttype,totalprice,productid,vendorid;
     EditText itemcount,address,pincode,paymentmode;
     FirebaseUser fuser= FirebaseAuth.getInstance().getCurrentUser();
@@ -70,6 +72,7 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
         productid=findViewById(R.id.productid);
         vendorid=findViewById(R.id.vendorid);
         progressBar=findViewById(R.id.progressbar);
+        editbutton=findViewById(R.id.editdetails);
 
         Bundle bundle=getIntent().getExtras();
         if (bundle!=null){
@@ -83,8 +86,22 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
             buyitem.setOnClickListener(v->{
                 if (checkdata()){
                         buynow.setVisibility(View.VISIBLE);
+                        editbutton.setVisibility(View.VISIBLE);
                         buynow.animate();
+                        itemcount.setEnabled(false);
+                        address.setEnabled(false);
+                        pincode.setEnabled(false);
+                        editbutton.setVisibility(View.VISIBLE);
+                        totalprice.setText(String.valueOf(Double.parseDouble(productprice.getText().toString())*Integer.parseInt(itemcount.getText().toString())));
                 }
+            });
+
+            editbutton.setOnClickListener(v->{
+                itemcount.setEnabled(true);
+                address.setEnabled(true);
+                pincode.setEnabled(true);
+                buynow.setVisibility(View.GONE);
+                editbutton.setVisibility(View.GONE);
             });
 
             buynow.setOnClickListener(v->{
@@ -97,6 +114,7 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                 titemcount=itemcount.getText().toString();
                 tamount=totalprice.getText().toString();
                 Toast.makeText(this, tvendorid, Toast.LENGTH_SHORT).show();
+                tamount=String.valueOf(Double.parseDouble(productprice.getText().toString())*Integer.parseInt(titemcount));
 
                 Map<String,Object> bookingdata = new HashMap<>();
                 bookingdata.put("Order_id",orderid);
@@ -105,8 +123,9 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                 bookingdata.put("Order_Product_pincode",tpincode);
                 bookingdata.put("Order_Product_count",titemcount);
                 bookingdata.put("Order_Product_amount",tamount);
-                bookingdata.put("Order_Product_Type","SEED");
+                bookingdata.put("Order_Status","Order Placed");
                 bookingdata.put("Order_Product_UserID",fuser.getUid().toString());
+                bookingdata.put("Order_Payment_Mode",paymentmode.getText().toString());
 
                 firestore.collection("Vendors").document(tvendorid.toString()).collection("Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
@@ -148,8 +167,10 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                 return false;
             } else if (pincode.getText().toString().trim().length() != 6) {
                 pincode.setError("enter a valid pincode");
+            }else{
+                return true;
             }
-            return true;
+            return false;
 
     }
 ///////////////////////////////
@@ -167,7 +188,7 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                 Toast.makeText(PlaceSeedOrderActivity.this, documentSnapshot.getId(), Toast.LENGTH_SHORT).show();
                 String pname=documentSnapshot.getString("SeedName")+" "+documentSnapshot.getString("Variety");
                 productname.setText(pname);
-                productprice.setText("Rs. "+documentSnapshot.getDouble("Price"));
+                productprice.setText(""+documentSnapshot.getDouble("Price"));
                 Glide.with(PlaceSeedOrderActivity.this).load(documentSnapshot.getString("ImageUrl")).into(productimage);
                 productid.setText(documentSnapshot.getString("SeedID"));
                 vendorid.setText(documentSnapshot.getString("VendorID"));
@@ -180,5 +201,6 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
         super.onStart();
         buynow.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
+        editbutton.setVisibility(View.GONE);
     }
 }
