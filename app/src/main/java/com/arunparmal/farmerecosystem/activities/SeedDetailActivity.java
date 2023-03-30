@@ -1,5 +1,7 @@
 package com.arunparmal.farmerecosystem.activities;
 
+import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 

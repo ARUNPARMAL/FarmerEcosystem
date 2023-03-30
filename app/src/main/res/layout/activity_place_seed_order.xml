@@ -11,6 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Review Order"
+        android:textColor="@color/darkgreen"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textAppearance="@android:style/TextAppearance.Large"
@@ -21,6 +23,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/edit_ic"
+        android:background="@color/lightgreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="20dp"/>
@@ -45,12 +48,31 @@
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
 
-        <TextView
-            android:id="@+id/totalprice"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="total Price"
-            android:textAppearance="@android:style/TextAppearance.Large" />
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total: "
+                android:textAppearance="@android:style/TextAppearance.Large" />
+            <TextView
+                android:id="@+id/hgj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs."
+                android:textAppearance="@android:style/TextAppearance.Large" />
+            <TextView
+                android:id="@+id/totalprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textAppearance="@android:style/TextAppearance.Large" />
+        </LinearLayout>
+
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview"
@@ -75,7 +97,7 @@
                     android:layout_marginTop="17dp"
                     android:layout_marginEnd="17dp"
                     android:layout_marginBottom="17dp"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/imgnotfound" />
 
                 <TextView
                     android:id="@+id/productname"
@@ -89,18 +111,30 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:text="product name"
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/rs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/productname"
+                    android:layout_alignStart="@+id/productname"
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@+id/productimage"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="Rs."
                     android:textAppearance="@android:style/TextAppearance.Medium" />
-
                 <TextView
                     android:id="@+id/product_price"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/productname"
-                    android:layout_alignStart="@+id/productname"
                     android:layout_alignEnd="@+id/productname"
                     android:layout_marginTop="8dp"
-                    android:layout_toRightOf="@+id/productimage"
+                    android:layout_toRightOf="@+id/rs"
                     android:ellipsize="end"
+                    android:layout_marginStart="3dp"
                     android:maxLines="2"
                     android:text="200"
                     android:textAppearance="@android:style/TextAppearance.Medium" />
@@ -122,6 +156,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Item Count"
+            android:textColor="@color/darkgreen"
+            android:textStyle="bold"
             android:textAppearance="@android:style/TextAppearance.Medium" />
 
         <EditText
@@ -135,6 +171,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Address"
+            android:textColor="@color/darkgreen"
+            android:textStyle="bold"
             android:textAppearance="@android:style/TextAppearance.Medium" />
 
         <EditText
@@ -148,6 +186,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Pin Code"
+            android:textColor="@color/darkgreen"
+            android:textStyle="bold"
             android:textAppearance="@android:style/TextAppearance.Medium"
 
             />
@@ -164,6 +204,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="payment mode"
+            android:textColor="@color/darkgreen"
+            android:textStyle="bold"
             android:textAppearance="@android:style/TextAppearance.Medium"
 
             />
@@ -200,6 +242,8 @@
        android:layout_weight="1"
        android:layout_height="50dp"
        android:text="proceed"
+       android:background="@drawable/button_bg"
+       android:textColor="@color/white"
        android:layout_marginHorizontal="10dp"
        />
     <Button
@@ -209,6 +253,8 @@
         android:layout_weight="1"
         android:layout_marginHorizontal="10dp"
         android:text="Buy Now"
+        android:background="@drawable/button_bg"
+        android:textColor="@color/white"
         android:visibility="gone"
         />
     </LinearLayout>

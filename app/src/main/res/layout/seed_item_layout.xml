@@ -6,6 +6,7 @@
     android:elevation="5dp"
     android:layout_margin="16dp"
     android:padding="12dp"
+    android:paddingBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,35 +17,41 @@
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.8"
+        android:padding="3dp"
+        app:layout_constraintHeight_percent="0.6"
         app:layout_constraintWidth_percent="0.8"
         app:layout_constraintStart_toStartOf="parent"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
+<LinearLayout
+    android:id="@+id/ll34"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/image"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.8"
+    android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/rss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs."
             android:textStyle="bold"
             android:layout_marginRight="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.776"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image" />
+            />
 
         <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image"
-        app:layout_constraintHorizontal_bias="0.86"
         android:textStyle="bold"
         android:text="price" />
+
+</LinearLayout>
 
         <TextView
             android:id="@+id/name"
@@ -53,14 +60,15 @@
             android:layout_marginHorizontal="17dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="name of the product"
             android:textAppearance="@android:style/TextAppearance.Medium"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.176"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/price" />
+
+            app:layout_constraintTop_toBottomOf="@+id/ll34" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
