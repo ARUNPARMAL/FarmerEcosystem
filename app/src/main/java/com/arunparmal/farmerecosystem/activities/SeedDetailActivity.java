@@ -26,7 +26,7 @@ public class SeedDetailActivity extends AppCompatActivity {
     TextView productname,price,sellername,stockstatus,seedname,seedvariety,netweight,netquantity
             ,brandname,harvestingtime,description;
     Button buyproduct;
-    ImageView seedimage;
+    ImageView seedimage,userimage;
     String tseedid;
     String tseedname;
     String tseedvariety;
@@ -63,6 +63,7 @@ public class SeedDetailActivity extends AppCompatActivity {
         harvestingtime=findViewById(R.id.harverstingtime);
         description=findViewById(R.id.description);
         seedimage=findViewById(R.id.imageView);
+        userimage=findViewById(R.id.user_image);
 
         buyproduct=findViewById(R.id.buy_button);
 
@@ -93,6 +94,7 @@ public class SeedDetailActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     if (task.isComplete()){
                         sellername.setText(String.valueOf(task.getResult().get("Name")));
+                        Glide.with(SeedDetailActivity.this).load(task.getResult().getString("ImageUrl")).into(userimage);
                     }
                 }
             });

@@ -17,10 +17,10 @@
         android:theme="@style/Theme.FarmerEcosystem"
         tools:targetApi="31">
         <activity
-            android:name=".SeedorderHistory"
+            android:name=".home.SeedorderHistory"
             android:exported="false" />
         <activity
-            android:name=".Chemical_Detail_Activity"
+            android:name=".shop.Chemical_Detail_Activity"
             android:exported="false" />
         <activity
             android:name=".shop.Shopping_History_Page"

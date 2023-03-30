@@ -52,15 +52,15 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/user_image"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginStart="10dp"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/price"
                     tools:srcCompat="@tools:sample/avatars" />
 
