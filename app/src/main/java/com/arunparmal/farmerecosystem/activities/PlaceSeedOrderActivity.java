@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,12 +31,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.ktx.Firebase;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class PlaceSeedOrderActivity extends AppCompatActivity {
+public class PlaceSeedOrderActivity extends AppCompatActivity implements PaymentResultListener {
 
     Constants constants = new Constants();
     FirebaseFirestore firestore;
@@ -46,6 +51,7 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
     EditText itemcount,address,pincode,paymentmode;
     FirebaseUser fuser= FirebaseAuth.getInstance().getCurrentUser();
     ProgressBar progressBar;
+    private Checkout checkout;
 
     String orderid= UUID.randomUUID().toString();
     @Override
@@ -130,14 +136,16 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
 
                 if (activity_code.equals(constants.ACTIVITY_SEED_DETAIL)){
 
-                firestore.collection("Vendors").document(tvendorid.toString()).collection("Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    String finalTamount = tamount;
+                    firestore.collection("Vendors").document(tvendorid.toString()).collection("Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                    if (task.isComplete()){
                        Toast.makeText(PlaceSeedOrderActivity.this, "Order Placed", Toast.LENGTH_SHORT).show();
                        progressBar.setVisibility(View.GONE);
-                       startActivity(new Intent(PlaceSeedOrderActivity.this,MainActivity.class));
-                       finish();
+//                       startActivity(new Intent(PlaceSeedOrderActivity.this,MainActivity.class));
+//                       finish();
+                       initialiseRazorPayForPayment(finalTamount);
                    }
                     }
                 });
@@ -228,5 +236,51 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
         buynow.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
         editbutton.setVisibility(View.GONE);
+    }
+
+//
+    @Override
+    public void onPaymentSuccess(String s) {
+        Toast.makeText(this, "DOne", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+    }
+
+    private void initialiseRazorPayForPayment(String amount) {
+        //amountPaid = amount.substring(0, amount.length()-2);
+        checkout = new Checkout();
+        checkout.setImage(R.drawable.profilebg);
+        checkout.setKeyID("rzp_live_cfTwVdoXchqngi");
+
+        final Activity activity = this;
+
+        try {
+            JSONObject options = new JSONObject();
+
+            options.put("name", getResources().getString(R.string.app_name));
+            options.put("description", "Krishi Mitra");
+            options.put("image", "");
+            //options.put("order_id", orderId);
+            options.put("currency", "INR");
+            JSONObject preFill = new JSONObject();
+//            preFill.put("email", AppPreferences.loadPreferences(getApplicationContext(), "email"));
+//            preFill.put("contact", user.getPhoneNumber());
+
+            options.put("prefill", preFill);
+            /**
+             * Amount is always passed in currency subunits
+             * Eg: "500" = INR 5.00
+             */
+            options.put("amount", amount + "");
+
+            checkout.open(activity, options);
+        } catch (Exception e) {
+            Log.e("TAG", "Error in starting Razorpay Checkout", e);
+        }
+
+
     }
 }
