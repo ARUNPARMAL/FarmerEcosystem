@@ -17,6 +17,9 @@
         android:theme="@style/Theme.FarmerEcosystem"
         tools:targetApi="31">
         <activity
+            android:name=".rent.RentOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".shop.Chemical_Details_Activity"
             android:exported="false" />
         <activity
@@ -55,6 +58,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:exported="true" />
+
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="true" />
     </application>
 
 </manifest>

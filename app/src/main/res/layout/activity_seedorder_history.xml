@@ -18,6 +18,15 @@
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/bgone"/>
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/bgtwo"/>
+
     <TextView
         android:id="@+id/tvyourorders"
         android:layout_width="match_parent"
@@ -95,13 +104,6 @@
 
         </LinearLayout>
     </ScrollView>
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/bgtwo"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
