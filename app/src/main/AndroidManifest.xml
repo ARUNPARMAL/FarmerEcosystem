@@ -16,6 +16,9 @@
         android:theme="@style/Theme.FarmerEcosystem"
         tools:targetApi="31">
         <activity
+            android:name=".activities.PlaceSeedOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SeedDetailActivity"
             android:exported="false" />
         <activity

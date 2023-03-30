@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.arunparmal.farmerecosystem.R;
 import com.arunparmal.farmerecosystem.adapters.Seedsadapter;
+import com.arunparmal.farmerecosystem.utility.Constants;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -18,6 +19,8 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
 
 
     }

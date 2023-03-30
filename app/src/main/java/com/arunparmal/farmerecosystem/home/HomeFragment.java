@@ -33,17 +33,9 @@ public class HomeFragment extends Fragment {
     ArrayList<SeedModel> seedlist=new ArrayList<SeedModel>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        // Inflate the layout for this fragment
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         firestore=FirebaseFirestore.getInstance();
-        recyclerView=(RecyclerView) view.findViewById(R.id.recyclerviewhome);
-        seedsadapter=new Seedsadapter(seedlist,getActivity());
-                recyclerView.setAdapter(seedsadapter);
-
-
 
         firestore.collection("Seeds").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -64,14 +56,20 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        seedsadapter=new Seedsadapter(seedlist,getActivity());
+    }
 
-        setupdata();
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        // Inflate the layout for this fragment
+        recyclerView=(RecyclerView) view.findViewById(R.id.recyclerviewhome);
+
+                recyclerView.setAdapter(seedsadapter);
         return view;
     }
 
-    private void setupdata() {
-
-//        recyclerView.setAdapter(seedsadapter);
-    }
 
 }

@@ -25,6 +25,18 @@ public class SeedDetailActivity extends AppCompatActivity {
             ,brandname,harvestingtime,description;
     Button buyproduct;
     ImageView seedimage;
+    String tseedid;
+    String tseedname;
+    String tseedvariety;
+    String timageUrl;
+    String tseedprice;
+    String tvendorid;
+    String tnet_weight;
+    String tnet_quantity;
+    String tbrand_name;
+    String tharvesting_Time;
+    String tdescription;
+    String tstockstatus;
 
     FirebaseFirestore firestore;
     @Override
@@ -43,30 +55,32 @@ public class SeedDetailActivity extends AppCompatActivity {
         stockstatus=findViewById(R.id.stockstatus);
         seedname=findViewById(R.id.seedname);
         seedvariety=findViewById(R.id.seed_variety);
-        netweight=findViewById(R.id.netweight);
+        netweight=findViewById(R.id.item_weight);
         netquantity=findViewById(R.id.quantity);
         brandname=findViewById(R.id.brand_name);
         harvestingtime=findViewById(R.id.harverstingtime);
         description=findViewById(R.id.description);
         seedimage=findViewById(R.id.imageView);
 
+        buyproduct=findViewById(R.id.buy_button);
+
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null){
 
        //getting extras
 
-        String tseedid = String.valueOf(bundle.get(constants.SEED_ID));
-        String tseedname=bundle.get(constants.SEED_NAME).toString();
-        String tseedvariety=bundle.get(constants.SEED_VARIETY).toString();
-        String timageUrl=bundle.get(constants.SEED_iMAGE_URL).toString();
-        String tseedprice=bundle.get(constants.PRICE).toString();
-        String tvendorid=bundle.get(constants.VENDOR_ID).toString();
-        String tnet_weight=String.valueOf(bundle.get(constants.ITEM_WEIGHT));
-        String tnet_quantity=String.valueOf(bundle.get(constants.NET_QUANTITY));
-        String tbrand_name=bundle.get(constants.BRAND_NAME).toString();
-        String tharvesting_Time=bundle.get(constants.TIME_PERIOD).toString();
-        String tdescription=bundle.get(constants.SEED_DESCRIPTION).toString();
-        String tstockstatus=bundle.get(constants.STOCK_STATUS).toString();
+         tseedid          =String.valueOf(bundle.get(constants.SEED_ID));
+         tseedname        =bundle.get(constants.SEED_NAME).toString();
+         tseedvariety     =bundle.get(constants.SEED_VARIETY).toString();
+         timageUrl        =bundle.get(constants.SEED_iMAGE_URL).toString();
+         tseedprice       =bundle.get(constants.PRICE).toString();
+         tvendorid        =bundle.get(constants.VENDOR_ID).toString();
+         tnet_weight      =String.valueOf(bundle.get(constants.ITEM_WEIGHT));
+         tnet_quantity    =String.valueOf(bundle.get(constants.NET_QUANTITY));
+         tbrand_name      =bundle.get(constants.BRAND_NAME).toString();
+         tharvesting_Time =bundle.get(constants.TIME_PERIOD).toString();
+         tdescription     =bundle.get(constants.SEED_DESCRIPTION).toString();
+         tstockstatus     =bundle.get(constants.STOCK_STATUS).toString();
 
 
 
@@ -103,5 +117,15 @@ public class SeedDetailActivity extends AppCompatActivity {
 
 
         }
+
+        buyproduct.setOnClickListener(v->{
+
+            Intent intent=new Intent(this,PlaceSeedOrderActivity.class);
+            intent.putExtra(constants.PRODUCT_ID,tseedid);
+            intent.putExtra(constants.ACTIVITY_VERIFICATION_CODE,constants.ACTIVITY_SEED_DETAIL);
+            startActivity(intent);
+        });
+
+
     }
 }

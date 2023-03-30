@@ -14,6 +14,11 @@ public class Constants {
      public final String PRICE="sprice";
      public final String VENDOR_ID="sVendorID";
      public final String SEED_iMAGE_URL="simageurl";
+     public final String ACTIVITY_SEED_DETAIL="seeddetailactivity";
+
+
+     public final String ACTIVITY_VERIFICATION_CODE="activitycode";
+     public final String PRODUCT_ID="product_id";
 
 
 
