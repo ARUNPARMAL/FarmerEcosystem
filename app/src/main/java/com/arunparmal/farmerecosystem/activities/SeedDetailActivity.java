@@ -102,7 +102,7 @@ public class SeedDetailActivity extends AppCompatActivity {
 
             Glide.with(this).load(timageUrl).into(seedimage);
             productname.setText(tseedname+" "+tseedvariety);
-            price.setText(tseedprice);
+            price.setText("Rs. "+tseedprice);
             stockstatus.setText(tstockstatus);
             if (tstockstatus.equals("In Stock")) {
                 stockstatus.setTextColor(this.getResources().getColor(R.color.green));
@@ -111,8 +111,8 @@ public class SeedDetailActivity extends AppCompatActivity {
             }
             seedname.setText(tseedname);
             seedvariety.setText(tseedvariety);
-            netweight.setText(tnet_weight);
-            netquantity.setText(tnet_quantity);
+            netweight.setText(tnet_weight+" g");
+            netquantity.setText(tnet_quantity+" pieces");
             brandname.setText(tbrand_name);
             harvestingtime.setText(tharvesting_Time);
             description.setText(tdescription);
