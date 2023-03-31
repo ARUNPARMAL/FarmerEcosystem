@@ -24,38 +24,21 @@
                     android:id="@+id/sorderimg"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/imgnotfound"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="#"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
-                        <TextView
-                            android:id="@+id/sorderid"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="dfghbjnkmlfcgvhbj"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
+
                     <TextView
                         android:id="@+id/sorderseedname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="seedname"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"/>
+                        android:textColor="@color/darkgreen"
+                        android:textSize="15sp"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -130,6 +113,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Cash on delivery"
+                            android:textStyle="italic"
                             android:textColor="@color/black"
                             android:textSize="14sp"/>
                     </LinearLayout>
@@ -153,6 +137,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="username"
+                    android:textStyle="italic"
                     android:textColor="@color/black"
                     android:textSize="14sp"/>
                 <TextView
@@ -167,13 +152,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Agra 456789"
-                    android:textColor="@color/black"
+                    android:textStyle="italic"
+                    android:textColor="@color/darkgreen"
                     android:textSize="14sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -188,12 +176,27 @@
                     android:text="Booked"
                     android:textColor="@color/black"
                     android:textSize="14sp"/>
-<!--                <Button-->
-<!--                    android:id="@+id/sorderdeliveredbtn"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Delivered"-->
-<!--                    android:layout_marginLeft="5dp"/>-->
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Order id: "
+                    android:textStyle="bold"
+                    android:textColor="@color/darkgreen"
+                    android:textSize="14sp"/>
+                <TextView
+                    android:id="@+id/sorderid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="dfghbjnkmlfcgvhbj"
+                    android:textStyle="bold"
+                    android:textColor="@color/darkgreen"
+                    android:textSize="14sp"/>
             </LinearLayout>
         </LinearLayout>
 
