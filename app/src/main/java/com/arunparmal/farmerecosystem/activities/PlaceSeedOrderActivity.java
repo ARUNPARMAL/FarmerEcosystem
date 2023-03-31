@@ -81,6 +81,9 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
 
             if (activity_code.equals(constants.ACTIVITY_SEED_DETAIL)){
                 getseeddatafromfirebase(product_id);
+            }else if (activity_code.equals(constants.ACTIVITY_CHEMICAL_DETAIL))
+            {
+                getchemicaldata(product_id);
             }
 
             buyitem.setOnClickListener(v->{
@@ -177,6 +180,27 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
 
 
         }
+    }
+
+    private void getchemicaldata(String product_id) {
+
+        firestore.collection("Seeds").whereEqualTo("SeedID",product_id).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                if (error!=null){
+                    Toast.makeText(PlaceSeedOrderActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+                DocumentSnapshot documentSnapshot=value.getDocuments().get(0);
+                Toast.makeText(PlaceSeedOrderActivity.this, documentSnapshot.getId(), Toast.LENGTH_SHORT).show();
+                String pname=documentSnapshot.getString("SeedName")+" "+documentSnapshot.getString("Variety");
+                productname.setText(pname);
+                productprice.setText(""+documentSnapshot.getDouble("Price"));
+                Glide.with(PlaceSeedOrderActivity.this).load(documentSnapshot.getString("ImageUrl")).into(productimage);
+                productid.setText(documentSnapshot.getString("SeedID"));
+                vendorid.setText(documentSnapshot.getString("VendorID"));
+            }
+        });
     }
 
     private Boolean checkdata() {
