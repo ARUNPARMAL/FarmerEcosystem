@@ -15,15 +15,26 @@
         android:scaleType="centerCrop"
         android:layout_marginTop="-5dp"/>
 
+
     <Button
-        android:id="@+id/shoppinghistory"
+        android:id="@+id/shoppingseedhistory"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
         android:background="@drawable/button_bg"
-        android:text="shopping history"
+        android:text="Seed Shopping history"
+        />
+    <Button
+        android:id="@+id/shoppinghistory"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button_bg"
+        android:text="Agro Chemical history"
         />
     <Button
         android:id="@+id/rentmachinehistory"
