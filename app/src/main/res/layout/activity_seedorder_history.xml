@@ -6,4 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".home.SeedorderHistory">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    <TextView
+        android:id="@+id/tvyourorders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Orders"
+
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        />
+    <TextView
+        android:id="@+id/tvseedorder"
+        android:layout_width="wrap_content"
+        android:text="Orders"
+        android:layout_marginStart="20dp"
+        android:textStyle="bold"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:paddingVertical="17dp"
+        android:id="@+id/recyclervieworderseeds"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvseedorder"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+    <TextView
+        android:id="@+id/tvseedorderpast"
+        android:layout_width="wrap_content"
+        android:text="Order History"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclervieworderseeds"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclervieworderseedspast"
+        android:layout_width="match_parent"
+        android:layout_marginTop="7dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvseedorderpast"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

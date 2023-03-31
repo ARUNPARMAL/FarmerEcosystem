@@ -12,7 +12,13 @@
         android:id="@+id/shoppinghistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="shopping history"
+        android:text="AgroChemical shopping history"
+        />
+    <Button
+        android:id="@+id/shoppingseedhistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seed shopping history"
         />
     <Button
         android:id="@+id/rentmachinehistory"
