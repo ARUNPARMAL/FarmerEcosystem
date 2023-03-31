@@ -23,7 +23,7 @@
             android:name=".home.SeedorderHistory"
             android:exported="false" />
         <activity
-            android:name=".shop.Shopping_History_Page"
+            android:name=".shop.Shopping_History_Page_Chemical_Activity"
             android:exported="false" />
         <activity
             android:name=".activities.OrderpageActivity"

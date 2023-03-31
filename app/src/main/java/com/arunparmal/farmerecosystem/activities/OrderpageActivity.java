@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.arunparmal.farmerecosystem.R;
 import com.arunparmal.farmerecosystem.home.SeedorderHistory;
+import com.arunparmal.farmerecosystem.shop.Shopping_History_Page_Chemical_Activity;
 
 public class OrderpageActivity extends AppCompatActivity {
 
@@ -25,5 +26,18 @@ public class OrderpageActivity extends AppCompatActivity {
         seed.setOnClickListener(v->{
             startActivity(new Intent(this, SeedorderHistory.class));
         });
+
+
+
+        chemicals.setOnClickListener(v->{
+            startActivity(new Intent(this, Shopping_History_Page_Chemical_Activity.class));
+        });
+//        seed.setOnClickListener(v->{
+//            startActivity(new Intent(this, SeedorderHistory.class));
+//        });
+//        seed.setOnClickListener(v->{
+//            startActivity(new Intent(this, SeedorderHistory.class));
+//        });
+
     }
 }

@@ -166,7 +166,7 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                         }
                     });
 
-                    firestore.collection("Farmers").document(fuser.getUid()).collection("Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    firestore.collection("Farmers").document(fuser.getUid()).collection("C_Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentReference> task) {
                             Log.d("database","data added in farmer collection");
@@ -184,7 +184,7 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
 
     private void getchemicaldata(String product_id) {
 
-        firestore.collection("Seeds").whereEqualTo("SeedID",product_id).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firestore.collection("Chemicals").whereEqualTo("ID",product_id).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
@@ -193,11 +193,11 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                 }
                 DocumentSnapshot documentSnapshot=value.getDocuments().get(0);
                 Toast.makeText(PlaceSeedOrderActivity.this, documentSnapshot.getId(), Toast.LENGTH_SHORT).show();
-                String pname=documentSnapshot.getString("SeedName")+" "+documentSnapshot.getString("Variety");
+                String pname=documentSnapshot.getString("Name")+" "+documentSnapshot.getString("Variety");
                 productname.setText(pname);
                 productprice.setText(""+documentSnapshot.getDouble("Price"));
                 Glide.with(PlaceSeedOrderActivity.this).load(documentSnapshot.getString("ImageUrl")).into(productimage);
-                productid.setText(documentSnapshot.getString("SeedID"));
+                productid.setText(documentSnapshot.getString("ID"));
                 vendorid.setText(documentSnapshot.getString("VendorID"));
             }
         });

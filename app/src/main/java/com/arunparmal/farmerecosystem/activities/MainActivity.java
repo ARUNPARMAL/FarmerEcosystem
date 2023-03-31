@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         meowBottomNavigation.add(new MeowBottomNavigation.Model(4,R.drawable.profile_ic));
 
         meowBottomNavigation.show(1,true);
-        replace(new HomeFragment());
+
 
         meowBottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
@@ -95,6 +95,14 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.framelayout,fragment);
         transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.framelayout,new HomeFragment());
         transaction.commit();
     }
 }
