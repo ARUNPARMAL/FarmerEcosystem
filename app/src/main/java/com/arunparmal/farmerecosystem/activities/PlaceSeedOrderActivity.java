@@ -104,6 +104,7 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                 editbutton.setVisibility(View.GONE);
             });
 
+
             buynow.setOnClickListener(v->{
                 progressBar.setVisibility(View.VISIBLE);
                 String tproductid,titemcount,taddress,tpincode,tmodeodpayment,tamount,tvendorid;
@@ -127,6 +128,8 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                 bookingdata.put("Order_Product_UserID",fuser.getUid().toString());
                 bookingdata.put("Order_Payment_Mode",paymentmode.getText().toString());
 
+                if (activity_code.equals(constants.ACTIVITY_SEED_DETAIL)){
+
                 firestore.collection("Vendors").document(tvendorid.toString()).collection("Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -145,6 +148,29 @@ public class PlaceSeedOrderActivity extends AppCompatActivity {
                         Log.d("database","data added in farmer collection");
                     }
                 });
+
+                }else if (activity_code.equals(constants.ACTIVITY_CHEMICAL_DETAIL)){
+
+                    firestore.collection("Vendors").document(tvendorid.toString()).collection("C_Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            if (task.isComplete()){
+                                Toast.makeText(PlaceSeedOrderActivity.this, "C_Order Placed", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                                startActivity(new Intent(PlaceSeedOrderActivity.this,MainActivity.class));
+                                finish();
+                            }
+                        }
+                    });
+
+                    firestore.collection("Farmers").document(fuser.getUid()).collection("Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            Log.d("database","data added in farmer collection");
+                        }
+                    });
+
+                }
             });
 
             System.out.println(" the data are "+activity_code+" and id is "+product_id);

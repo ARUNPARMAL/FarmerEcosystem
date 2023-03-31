@@ -21,6 +21,8 @@ public class Constants {
      public final String PRODUCT_ID="product_id";
 
 
+     public final String ACTIVITY_CHEMICAL_DETAIL="chemicaldetailactivity";
+
 
      public final String CHEMICAL_ID="cid";
      public final String CHEMICAL_BRAND_NAME="cbrand";

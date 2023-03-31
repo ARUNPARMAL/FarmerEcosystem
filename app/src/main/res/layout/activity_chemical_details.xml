@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".shop.Chemical_Details_Activity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="#EBF3E8"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buy_item_chemical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/c_name_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/c_imageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Rupa Rice"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/c_imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="285dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintWidth_percent="0.85"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/c_name_text"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/c_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="19sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toStartOf="@id/c_imageView"
+                    app:layout_constraintTop_toBottomOf="@id/c_imageView"
+                    tools:text="Rs. 20"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/c_stockstatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="19sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintEnd_toEndOf="@id/c_imageView"
+                    app:layout_constraintTop_toBottomOf="@id/c_imageView"
+                    tools:text="In Stock"
+                    />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@color/white"
+                    android:padding="10dp"
+                    app:cardCornerRadius="9dp"
+                    app:layout_constraintWidth_percent="0.87"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/c_price">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:paddingBottom="20dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/c_product_creds"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chemical Details"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="Chemical Details"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cnametv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/c_product_creds"
+                            android:text="Chemical Name"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/cHarvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/c_product_creds"
+                            android:text="Wheat "/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cvarietytv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cname"
+                            android:text="Chemical Type "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/c_variety"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/cHarvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/cname"
+                            android:text="Golden beauty"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cnetweight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/c_variety"
+                            android:text="Net Weight "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/citem_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/cHarvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/c_variety"
+                            android:text="20 g"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cquantitytv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/citem_weight"
+                            android:text="Quantity "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cquantity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/cHarvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/citem_weight"
+                            android:text="120 pieces"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cbrandnametv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cquantity"
+                            android:text="Brand  "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cbrand_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/cHarvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/cquantity"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:paddingRight="20dp"
+                            android:text="Brand Name "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cHarvestingtimetv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cbrand_name"
+                            android:text="Use                      "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/charverstingtime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:inputType="textMultiLine"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/cHarvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/cbrand_name"
+                            android:text="march , 2022"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cdescriptiontv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/charverstingtime"
+                            android:text="Description "/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cdescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:inputType="textMultiLine"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintStart_toEndOf="@id/cHarvestingtimetv"
+                            app:layout_constraintTop_toBottomOf="@id/cHarvestingtimetv"
+                            android:text="scientific name of the prouct"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+        <Button
+            android:id="@+id/buy_item_chemical"
+            android:layout_width="match_parent"
+            android:text="Buy Item"
+            android:background="@drawable/button_bg"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="20dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.arunparmal.farmerecosystem.R;
 import com.arunparmal.farmerecosystem.model.ChemicalModel;
-import com.arunparmal.farmerecosystem.shop.Chemical_Detail_Activity;
+import com.arunparmal.farmerecosystem.shop.Chemical_Details_Activity;
 import com.arunparmal.farmerecosystem.utility.Constants;
 import com.bumptech.glide.Glide;
 
@@ -54,7 +54,7 @@ public class ChemicalAdapter extends RecyclerView.Adapter<ChemicalAdapter.Chemic
         }
         holder.linearLayout.setOnClickListener(v-> {
 
-            intent = new Intent(context, Chemical_Detail_Activity.class);
+            intent = new Intent(context, Chemical_Details_Activity.class);
             intent.putExtra(constants.CHEMICAL_NAME, chemicallist.get(position).getName());
             intent.putExtra(constants.CHEMICAL_BRAND_NAME, chemicallist.get(position).getBrand());
             intent.putExtra(constants.CHEMICAL_ID, chemicallist.get(position).getID());
