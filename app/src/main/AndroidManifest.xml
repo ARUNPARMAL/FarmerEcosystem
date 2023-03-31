@@ -17,16 +17,13 @@
         android:theme="@style/Theme.FarmerEcosystem"
         tools:targetApi="31">
         <activity
-            android:name=".rent.RentOrderActivity"
-            android:exported="false" />
-        <activity
             android:name=".shop.Chemical_Details_Activity"
             android:exported="false" />
         <activity
             android:name=".home.SeedorderHistory"
             android:exported="false" />
         <activity
-            android:name=".shop.Shopping_History_Page"
+            android:name=".shop.Shopping_History_Page_Chemical_Activity"
             android:exported="false" />
         <activity
             android:name=".activities.OrderpageActivity"
@@ -60,11 +57,9 @@
         </activity>
         <activity
             android:name="com.razorpay.CheckoutActivity"
-            android:exported="true" />
-
-        <receiver
-            android:name="com.razorpay.RzpTokenReceiver"
-            android:exported="true" />
+            android:exported="true"/>
+        <receiver android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="true"/>
     </application>
 
 </manifest>

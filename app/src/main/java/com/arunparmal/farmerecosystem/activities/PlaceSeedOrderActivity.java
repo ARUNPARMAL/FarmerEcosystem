@@ -87,6 +87,9 @@ public class PlaceSeedOrderActivity extends AppCompatActivity implements Payment
 
             if (activity_code.equals(constants.ACTIVITY_SEED_DETAIL)){
                 getseeddatafromfirebase(product_id);
+            }else if (activity_code.equals(constants.ACTIVITY_CHEMICAL_DETAIL))
+            {
+                getchemicaldata(product_id);
             }
 
             buyitem.setOnClickListener(v->{
@@ -171,7 +174,7 @@ public class PlaceSeedOrderActivity extends AppCompatActivity implements Payment
                         }
                     });
 
-                    firestore.collection("Farmers").document(fuser.getUid()).collection("Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    firestore.collection("Farmers").document(fuser.getUid()).collection("C_Orders").add(bookingdata).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentReference> task) {
                             Log.d("database","data added in farmer collection");
@@ -185,6 +188,27 @@ public class PlaceSeedOrderActivity extends AppCompatActivity implements Payment
 
 
         }
+    }
+
+    private void getchemicaldata(String product_id) {
+
+        firestore.collection("Chemicals").whereEqualTo("ID",product_id).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                if (error!=null){
+                    Toast.makeText(PlaceSeedOrderActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+                DocumentSnapshot documentSnapshot=value.getDocuments().get(0);
+                Toast.makeText(PlaceSeedOrderActivity.this, documentSnapshot.getId(), Toast.LENGTH_SHORT).show();
+                String pname=documentSnapshot.getString("Name")+" "+documentSnapshot.getString("Variety");
+                productname.setText(pname);
+                productprice.setText(""+documentSnapshot.getDouble("Price"));
+                Glide.with(PlaceSeedOrderActivity.this).load(documentSnapshot.getString("ImageUrl")).into(productimage);
+                productid.setText(documentSnapshot.getString("ID"));
+                vendorid.setText(documentSnapshot.getString("VendorID"));
+            }
+        });
     }
 
     private Boolean checkdata() {
@@ -207,7 +231,9 @@ public class PlaceSeedOrderActivity extends AppCompatActivity implements Payment
             return false;
 
     }
+///////////////////////////////
 
+    ////////////
     private void getseeddatafromfirebase(String product_id) {
         firestore.collection("Seeds").whereEqualTo("SeedID",product_id).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -261,11 +287,18 @@ public class PlaceSeedOrderActivity extends AppCompatActivity implements Payment
             options.put("name", getResources().getString(R.string.app_name));
             options.put("description", "Krishi Mitra");
             options.put("image", "");
+            //options.put("order_id", orderId);
             options.put("currency", "INR");
             JSONObject preFill = new JSONObject();
+//            preFill.put("email", AppPreferences.loadPreferences(getApplicationContext(), "email"));
+//            preFill.put("contact", user.getPhoneNumber());
 
             options.put("prefill", preFill);
-                       options.put("amount", amount + "");
+            /**
+             * Amount is always passed in currency subunits
+             * Eg: "500" = INR 5.00
+             */
+            options.put("amount", amount + "");
 
             checkout.open(activity, options);
         } catch (Exception e) {
