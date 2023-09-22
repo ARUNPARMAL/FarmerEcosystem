@@ -24,8 +24,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="Welcome to Vendor app"
+            android:layout_marginTop="30dp"
+            android:text="Welcome to Krishi Mitra"
             android:textColor="#67A238"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -38,58 +38,47 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="12dp">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Let's "
-                android:textColor="#67A238"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="login!"
+                android:text="Let's login!"
                 android:textColor="#67A238"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="+91- "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_mobileno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="5dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="5dp">
+                android:hint="Enter Mobile Number"
+                android:background="@drawable/edittext_bg"
+                android:inputType="phone"
+                android:padding="12dp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="+91- "
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/input_mobileno"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Mobile Number"
-                    android:background="@drawable/edittext_bg"
-                    android:inputType="phone"
-                    android:padding="12dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
+        </LinearLayout>
 
 
 
@@ -102,7 +91,7 @@
                 android:layout_width="180dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_margin="30dp"
+                android:layout_margin="20dp"
                 android:layout_marginTop="25dp"
                 android:gravity="center"
                 android:background="@drawable/button_bg"
@@ -114,6 +103,22 @@
 
                 android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Or login with..."
+                android:textStyle="bold|italic"
+                android:textSize="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:layout_marginTop="110dp"
+                >
+
+            </TextView>
+
+
+
             <ProgressBar
                 android:id="@+id/progressbarsending"
                 android:layout_width="35dp"
@@ -122,7 +127,33 @@
                 android:visibility="gone" />
         </FrameLayout>
 
-
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/googlelogo"
+        android:id="@+id/googlelogobtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="100dp">
+
+
+    </ImageView>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/fblogo"
+        android:id="@+id/faceboklogobtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="100dp">
+
+
+    </ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
