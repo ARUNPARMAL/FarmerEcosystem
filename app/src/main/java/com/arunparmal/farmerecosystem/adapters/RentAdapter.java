@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arunparmal.farmerecosystem.R;
@@ -29,8 +30,6 @@ import java.util.ArrayList;
 public class RentAdapter extends RecyclerView.Adapter<RentAdapter.RentViewholder> {
     Context context;
     ArrayList<RentModel> rentlist;
-    FirebaseFirestore firestore=FirebaseFirestore.getInstance();
-    Intent intent;
 
     public RentAdapter(Context context, ArrayList<RentModel> rentlist) {
         this.context = context;
@@ -49,9 +48,7 @@ public class RentAdapter extends RecyclerView.Adapter<RentAdapter.RentViewholder
         RentModel pos=rentlist.get(position);
         holder.mname.setText(pos.getName());
         holder.mprice.setText(pos.getRate());
-        holder.mcompany.setText(pos.getCompany());
         holder.used.setText(pos.getPurpose());
-        holder.details.setText(pos.getDetails());
         String url=pos.getImageUrl();
         if(url!=null){
             Glide.with(context.getApplicationContext()).load(url).into(holder.image);
@@ -59,31 +56,29 @@ public class RentAdapter extends RecyclerView.Adapter<RentAdapter.RentViewholder
         else{
             Glide.with(context.getApplicationContext()).load(R.drawable.ic_launcher_background).into(holder.image);
         }
-        firestore.collection("MachineLender").document(pos.getLenderID()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+
+        holder.rentnow.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                holder.username.setText(documentSnapshot.getString("Name"));
-                holder.mobile.setText(documentSnapshot.getString("Phone"));
-                String address=documentSnapshot.getString("City")+", "+documentSnapshot.getString("Post")+", "+
-                documentSnapshot.getString("District")+", "+documentSnapshot.getString("State")+", "+documentSnapshot.getString("Pincode");
-                holder.address.setText(address);
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                // set the custom layout
+
+                View customLayout=LayoutInflater.from(context).inflate(R.layout.layout_rent_dialog,null);
+                builder.setView(customLayout);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                TextView cancel=customLayout.findViewById(R.id.cancelbtn);
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
             }
         });
 
-        holder.placeorder.setOnClickListener(v-> {
 
-            intent = new Intent(context, RentOrderActivity.class);
-            intent.putExtra("name",pos.getName());
-            intent.putExtra("Rate",pos.getRate());
-            intent.putExtra("Comp",pos.getCompany());
-            intent.putExtra("Use",pos.getPurpose());
-            intent.putExtra("Details",pos.getDetails());
-            intent.putExtra("Url",pos.getImageUrl());
-            intent.putExtra("username",holder.username.getText().toString());
-            intent.putExtra("mobile",holder.mobile.getText().toString());
-            intent.putExtra("address",holder.address.getText().toString());
-            context.startActivity(intent);
-        });
     }
 
     @Override
@@ -92,22 +87,17 @@ public class RentAdapter extends RecyclerView.Adapter<RentAdapter.RentViewholder
     }
 
     public class RentViewholder extends RecyclerView.ViewHolder{
-        TextView mname,mprice,mcompany,used,details,username,mobile,address;
+        TextView mname,mprice,used;
         ImageView image;
         LinearLayout linearLayout;
-        Button placeorder;
+        Button rentnow;
         public RentViewholder(@NonNull View itemView) {
             super(itemView);
             mname=itemView.findViewById(R.id.machinename);
             mprice=itemView.findViewById(R.id.machineprice);
-            mcompany=itemView.findViewById(R.id.machinecomp);
             used=itemView.findViewById(R.id.machineused);
-            details=itemView.findViewById(R.id.machinedetails);
-            username=itemView.findViewById(R.id.machineusername);
-            mobile=itemView.findViewById(R.id.machineusermobile);
-            address=itemView.findViewById(R.id.machineuseraddress);
             image=itemView.findViewById(R.id.machineimg);
-            placeorder=itemView.findViewById(R.id.mplaceorder);
+            rentnow=itemView.findViewById(R.id.mrentnow);
         }
     }
 

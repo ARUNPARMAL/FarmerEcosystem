@@ -17,11 +17,14 @@ import com.arunparmal.farmerecosystem.shop.ShopFragment;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.common.eventbus.Subscribe;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -38,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         //firebase instance
         firestore=FirebaseFirestore.getInstance();
+        FirebaseMessaging.getInstance().subscribeToTopic("notification");
+
 
         //meownavigationbar
         meowBottomNavigation=findViewById(R.id.meowbnv);

@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
     implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
     implementation 'com.google.firebase:firebase-auth:21.1.0'
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -58,5 +59,8 @@ dependencies {
     implementation 'com.razorpay:checkout:1.5.16'
     implementation 'androidx.browser:browser:1.4.0'
     implementation 'com.bogdwellers:pinchtozoom:0.1'
+
+    //img slider
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
 }

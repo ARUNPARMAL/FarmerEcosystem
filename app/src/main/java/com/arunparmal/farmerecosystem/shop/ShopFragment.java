@@ -38,24 +38,7 @@ public class ShopFragment extends Fragment {
 
         firestore=FirebaseFirestore.getInstance();
 
-        firestore.collection("Chemicals").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                if (error!=null){
-                    Log.d("Firebase Error",error.getMessage());
-                }
-                for (DocumentChange documentChange:value.getDocumentChanges()) {
-                    if (documentChange.getType() == DocumentChange.Type.ADDED) {
-                        System.out.println("function is running");
-                        chemicalList.add(documentChange.getDocument().toObject(ChemicalModel.class));
 
-//                    Database database=documentChange.getDocument().toObject(Database.class);
-                    }
-                }
-                chemicaladapter.notifyDataSetChanged();
-
-            }
-        });
 
     }
 
@@ -65,9 +48,7 @@ public class ShopFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_shop, container, false);
 
-        chemicaladapter=new ChemicalAdapter(getActivity(),chemicalList);
-        recyclerView=view.findViewById(R.id.recyclerviewshop);
-        recyclerView.setAdapter(chemicaladapter);
+
         return view;
     }
 }
